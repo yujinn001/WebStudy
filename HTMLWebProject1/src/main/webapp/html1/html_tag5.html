@@ -9,8 +9,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
-
+	<h1> UL 태그(순서가 없는 목록ul-li)</h1>
+	<ul>
+		<li>자바</li>
+		<li>오라클</li>
+	</ul>
+	<p>
+	<h1>OL 태그(순서가 있는 목록ol-li)</h1>
+	<ol>
+		<li>자바</li>
+		<li>오라클</li>	
+	</ol>
+	<p>
+	<h1>DL태그(상세보기 dl-dt,dd)</h1>
+	<dl>
+		<dt>자바</dt>
+		<dd>변수, 연산자, 제어문, 클래스, 클래스의 종류, 예외처리, 라이브러리(컬렉션,IO)</dd>
+		<dt>오라클</dt>
+		<dd>DML, DQL, DDL, TCL</dd>
+		<dt>html</dt>
+		<dd>태그, 속성</dd>
+	</dl>
+	<p>
+	<h1> 중첩 (ul-li-ol) </h1>
+	<ul>
+	   <li>
+	   <b>과일1</b>
+	   <ol>
+	      <li>사과</li>
+	      <li>배</li>
+	      <li>수박</li>	      
+	   	</ol>
+	   </li>
+	   <li>
+	   <b>과일2</b>
+	   <ol>
+	      <li>오렌지</li>
+	      <li>체리</li>
+	      <li>딸기</li>	      
+	   	</ol>
+	   </li>
+	</ul>
+	<p>
+	<h1>table 태그 (table-tr-(th|td)</h1>
+	<h3>구구단</h3>
+	<table border = 1><!--  border을 줘야 테두리가 나온다 -->
+	<tr><!-- 한개의 행 => table-row -->
+	 <th>2단 </th> <!-- 가운데 정렬, 글꼴은 bold체 (각 열의 제목을 준다) -->
+	 <th> 3단</th>
+	 <th> 4단</th>
+	 <th> 5단</th>
+	 <th> 6단</th>
+	 <th> 7단</th>
+	 <th> 8단</th>
+	 <th> 9단</th>	 
+	</tr>
+	<tr>
+		<td>2*1=2</td><!--table-data(정렬 => left, bold적용이 안됨) -->
+		<td>3*1=3</td>
+		<td>4*1=4</td>
+		<td>5*1=5</td>
+		<td>6*1=6</td>
+		<td>7*1=7</td>
+		<td>8*1=8</td>
+		<td>9*1=9</td>
+	 </tr>
+	</table>
 </body>
 </html>
