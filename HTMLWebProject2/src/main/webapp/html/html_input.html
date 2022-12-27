@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+</head>
+<!-- 
+   table : 목록출력
+      속성 
+         1) width , height
+         2) style , id , class , name => 구분자를 나타낼 때, 디자인
+         3) border : 두께
+         4) bordercolor : 색상
+         5) cellpadding
+         6) cellspacing
+   tr : 한줄
+       속성
+        1) width, height
+        2) style , id , class , name => 구분자를 나타낼 때, 디자인
+        3) bgcolor : 색상
+   th/td : 데이터 출력 공간
+       속성
+        1) width , height
+        2) style , id , class , name => 구분자를 나타낼 때, 디자인
+        3) bgcolor
+        4) align valign
+           ------
+            데이터 길이가 동일 (center)
+            데이터 길이가 동일x (left)
+            숫자(right)
+ -->
+<body>
+   <center> <!-- css배우면 사용x margin을 사용 -->
+      <h1>글쓰기</h1>
+      <form><!-- 입력된 모든데이터를 한번에 전송 -->
+      <table width=500 id="table_content">
+         <tr>
+            <th width=20% align="right">이름</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <input type=text size=15 required> <!-- required = 필수입력(유효성검사) -->
+         </tr>
+         <tr>
+            <th width=20% align="right">홈페이지</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <input type=text size=35 value="http://">
+         </tr>
+         <tr>
+            <th width=20% align="right">이메일</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <input type=text size=35 required">
+         </tr>
+         <tr>
+            <th width=20% align="right">제목</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <input type=text size=35 required">
+         </tr>
+         <tr>
+            <th width=20% align="right">내용</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <textarea rows="8" cols="35"></textarea>
+         </tr>
+         <tr>
+            <th width=20% align="right">비밀번호</th> <!-- align = 정렬 -->
+            <td width=80%> <!-- 정렬안하면 왼쪽 정렬 -->
+            <input type=text size=35 required">
+         </tr>
+         <tr>
+            <td colspan="2" align=center>
+               <input type=submit value="글쓰기">
+               <input type=button value="취소" onclick="javascript:history.back()">
+            </td>
+         </tr>
+      </table>
+      </form>
+   </center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
