@@ -10,8 +10,8 @@ import org.jsoup.select.Elements;
 public class DataCollectionService {
 	public static void main(String[] args) {
 		DataCollectionService ds = new DataCollectionService();
-		//ds.foodCategoryGetData();
-		ds.foodDetailData();
+		ds.foodCategoryGetData();
+		//ds.foodDetailData();
 	}
 	public void foodCategoryGetData()
 	{
@@ -25,7 +25,7 @@ public class DataCollectionService {
 			Elements subject= doc.select("div.top_list_slide div.info_inner_wrap p.desc");
 			Elements poster= doc.select("div.top_list_slide img.center-croping");
 			Elements link= doc.select("div.top_list_slide a");
-			//System.out.println(link.toString());
+			System.out.println(link.toString());
 			for(int i =0; i<title.size(); i++ )
 			{                      // 데이터 값을 읽는 방법 : get()
 				System.out.println(i+1);
