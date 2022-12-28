@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+    id를 가져올 때는 # 
+    id는 중복이 있으면 안된다
+    
+    class는 여러개 동시 제어 / 중복가능 
+    class를 가져올 때는 .
+--> 
+<style type="text/css">
+h1#js{
+	color:red;
+}
+h1.hr{
+	color:green;
+}
+h1:first-child {
+	color :yellow;
+}
+h1:last-child {
+	color :pink;
+}
+</style>
+</head>
+<body>
+  <h1>Java</h1>
+  <h1>Oracle</h1>
+  <h1 class="hr">HTML/CSS</h1>
+  <h1 id="js">JavaScript</h1>
+  <h1>JSP</h1>
+  <h1 class="hr">Spring</h1>
+  <h1>AWS</h1>  
+</body>
+</html>
