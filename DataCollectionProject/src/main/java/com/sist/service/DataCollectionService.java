@@ -10,8 +10,8 @@ import org.jsoup.select.Elements;
 public class DataCollectionService {
 	public static void main(String[] args) {
 		DataCollectionService ds = new DataCollectionService();
-		ds.foodCategoryGetData();
-		//ds.foodDetailData();
+		//ds.foodCategoryGetData();
+		ds.foodDetailData();
 	}
 	public void foodCategoryGetData()
 	{
@@ -69,13 +69,13 @@ public class DataCollectionService {
 			ArrayList<CategoryVO> list =dao.foodCategoryInfoData();
 			for(CategoryVO vo : list)
 			{
-				//System.out.println(vo.getCno()+" "+vo.getTitle()+" "+vo.getLink());
-			   System.out.println(vo.getCno()+"."+vo.getTitle());
+				System.out.println(vo.getCno()+" "+vo.getTitle()+" "+vo.getLink());
+			   //System.out.println(vo.getCno()+"."+vo.getTitle());
 			   Document doc = Jsoup.connect(vo.getLink()).get();
 			   Elements link = doc.select("section#contents_list span.title a");
 			   for(int i =0; i<link.size();i++)
 			   {
-				   //System.out.println(link.get(i).attr("href"));
+				   System.out.println(link.get(i).attr("href"));
 				   Document doc2= Jsoup.connect("https://www.mangoplate.com"+link.get(i).attr("href")).get();
 			       //1.이미지
 				   Elements image =doc2.select("div.list-photo_wrap img.center-croping");
@@ -87,7 +87,7 @@ public class DataCollectionService {
 					   
 				   }
 				   poster=poster.substring(0,poster.lastIndexOf("^"));
-				   //System.out.println(poster);
+				   System.out.println(poster);
 				   // 오라클에서 &는 값이 없어지므로 임시 대체
 				   poster=poster.replace("&", "#");
 				   // 2. 맛집명
