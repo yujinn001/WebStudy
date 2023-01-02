@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+	width:500px;
+	height:500px;
+	border:1px red solid;
+}
+#back{
+	background-image: url('f3.jpg');
+	background-repeat: no-repeat;/*반복없이 사용*/
+	/*background-size: cover;*/
+	/*이미지 확대*/
+	background-size: 100% 250px; /*width height (100%=height는 자동지정)*/
+	
+}
+/*177page*/
+#back2{
+	background-image: url('f3.jpg');
+	background-size: cover;
+	overflow: auto; /*div안에 스크롤 바를 만든다*/
+}
+#back3{
+	background-image: url('f3.jpg');
+	background-size: cover;
+	background-position: 0px  50px;
+	background-repeat: no-repeat;
+}
+pre
+{
+	white-space: pre-wrap;/* 문장이 범위를 벗어난 경우에 자동 줄바꿈 : 내용 보기 */
+	text-align:center;
+}
+</style>
+</head>
+<body>
+	<div>
+		<img src="f3.jpg">
+	</div>
+	<p>
+	<div id ="back">
+		
+	</div>
+	<div id ="back2">
+		<h1>건설업 하루 평균 임금 약 26만원…직전 반기 대비 2.5% 상승</h1>
+		<pre>
+		건설업 임금실태조사 통계는 전국 2000개 공사현장을 대상으로 
+		2022년 9월 건설근로자 임금을 조사·집계한 것으로, 
+		올 1일부터 건설공사 원가 계산에 적용된다.
+		
+		</pre>
+	</div>
+	<div>
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- 
+	background-clip :배경 적용 범위 조절
+	                 border-box, padding-box, center-box
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div.bg{
+    padding:15px; /* padding => 위, 아래, 좌, 우 (15px,15px,15px,15px)*/
+    /*
+     padding : 15px 20px
+              15 20 15 20
+              15px 20px 30px
+              ----------------
+              15 20 30 20 
+    */
+	width:350px;
+	height:500px;
+ 	background-clip: cotent-box; /*칸 간격 => padding box */
+ 	border: 1px red dotted;
+}
+</style>
+</head>
+<body>
+	<div class ="bg">
+		따따따따 명불허전입니다. 고기의 질, 서비스 등 최고입니다. 
+		맡김차림 캐주얼 다이닝으로 먹었는데, 고기의 종류는 그때그때 좀 달라지는 듯하네요. 직원분이 정말 딱 알맞게 가장 맛있는 상태로 잘 구워주십니다. 
+		소고기 좋아하시는 분은 한번쯤은 가볼만 합니다.
+	</div>
+</body>
+</html>
