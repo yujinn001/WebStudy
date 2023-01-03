@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+/* ul, table, ol, dl */
+h1:first-child{
+	color: blue;
+}
+h1:last-child{
+	color: pink;
+}
+/* 2n(0) 2n(1) 2n(2)
+     0    2      4
+*/
+h1:nth-child(2n+1)
+{
+	background-color: yellow;
+}
+h1:nth-child(2n) {
+  	color:green;
+}
+</style>
+</head>
+<body>
+	<h1>홍길동1</h1> <!-- first child -->
+	<h1>홍길동2</h1>
+	<h1>홍길동3</h1>
+	<h1>홍길동4</h1>
+	<h1>홍길동5</h1> <!-- last child -->
+</body>
+</html>

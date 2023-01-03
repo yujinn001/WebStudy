@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+/* 자바스크립트에서 주로 사용 : 선택된 데이터 전송, 삭제*/
+input[type=radio]:checked{
+	border : 5px solid red;
+	appearance : none; 
+	/*기본 적용된 속성을 제거한 다음에 CSS 설정*/
+}
+input[type=checkbox]:checked{
+	bordeR: 5px solid red;
+	appearance:none;
+}
+input[type=text]:disabled{
+  background-color: green;
+}
+/* 검색창을 클릭했을 경우 color가 변한다 */
+input[type=text]:focus{
+	background-color: red;
+}
+input[type=text]:enabled{
+	background-color: yellow;
+}
+/*
+	enabled
+	checked
+	selecter
+	disabled
+*/
+</style>
+</head>
+<body>
+	<!-- checked -->
+	성별 : <input type =radio name =sex checked> 남자
+		  <input type =radio name =sex > 여자
+	<p>
+	취미: <input type =checkbox checked> 등산
+	     <input type =checkbox> 독서
+	     <input type =checkbox> 
+	     <input type =checkbox checked> 게임
+	     <input type =checkbox checked> 개발
+	<p>
+	이름 : <input type = text size =15><br>
+	주소 : <input type = text size =25 disabled="disabled"> <!-- disabled : 비활성화 -->
+	상세 주소 : <input type =text size =25>
+	
+</body>
+</html>

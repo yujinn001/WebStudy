@@ -1,0 +1,93 @@
+<!-- 
+	px
+	em
+	%
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+div.container{
+	width:100%
+}
+div.row{
+  width: 750px;
+  margin:0px auto; /* 가운데 정렬 */
+}
+h1{
+	text-align: center;
+}
+ul{
+	list-style: none;
+	/*display : inline은 줄 바꿈 없이 한줄에 보여준다 */
+	/*display : inline;*/
+	background-color: blue;	
+}
+
+/* 글자 간격 -> padding*/
+ul li{
+	padding: 15px;
+	float:left;
+	font-weight:bold;
+	color:white;
+}
+
+ul li:first-child{
+	border-radius:10px 0px 0px 10px;
+}
+
+ul li:last-child{
+	border-radius:0px 10px 10px 0px;
+}
+ul li:nth-child(odd){
+	background-color: #ebe7f1;
+}
+ul li:nth-child(even){
+	background-color: pink;
+}
+ul li:hover{
+	cursor: pointer;
+	color:cyan;
+}
+</style>
+</head>
+<body>
+	<div class ="container">
+		<div class ="row">
+			<h1>CSS 응용</h1>
+			<!-- 메뉴 -->
+			<ul>
+				<li>홈</li>
+				<li>회원가입</li>
+				<li>맛집</li>
+				<li>레시피</li>
+				<li>서울여행</li>
+				<li>코스</li>
+				<li>추천</li>
+				<li>커뮤니티</li>
+				<li>마이페이지</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
