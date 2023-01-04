@@ -5,6 +5,7 @@ public class FoodDAO {
    private Connection conn;
    private PreparedStatement ps;
    private String URL="jdbc:oracle:thin:@localhost:1521:XE";
+   
    public FoodDAO()
    {
 	   try
@@ -52,7 +53,8 @@ public class FoodDAO {
 		   disConnection();
 	   }
    }
-   // 카테고리에서 카테고리 번호 , 링크 , 제목 => findByCno() 
+   
+   // 카테고리에서 카테고리 번호  , 제목 => findByCno() 
    public ArrayList<CategoryVO> foodCategoryInfoData()
    {
 	   ArrayList<CategoryVO> list=new ArrayList<CategoryVO>();

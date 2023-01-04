@@ -15,7 +15,8 @@ public class DataCollectionService {
    public static void main(String[] args) {
       DataCollectionService ds = new DataCollectionService();
       //ds.foodCategoryGetData();
-      //ds.foodDetailData();
+      ds.foodDetailData();
+      //
       ds.goodsAllData();
    }
    public void foodCategoryGetData()
@@ -83,6 +84,7 @@ public class DataCollectionService {
             //System.out.println(vo.getCno()+"."+vo.getTitle());
             Document doc = Jsoup.connect(vo.getLink()).get();
             Elements link = doc.select("section#contents_list span.title a");
+            
             for(int i =0; i<link.size();i++)
             {
                System.out.println(link.get(i).attr("href"));
@@ -97,7 +99,7 @@ public class DataCollectionService {
                   
                }
                poster=poster.substring(0,poster.lastIndexOf("^"));
-               //System.out.println(poster);
+               System.out.println(poster);
                // 오라클에서 &는 값이 없어지므로 임시 대체
                poster=poster.replace("&", "#");
                fvo.setPoster(poster); // 값을 채워서 db로 보내기
@@ -273,13 +275,13 @@ public class DataCollectionService {
 		    	 System.out.println(link.get(j).attr("href"));
 		    	 Document doc2 =Jsoup.connect(link.get(j).attr("href")).get();
 		    	 Element poster =doc2.selectFirst("div.s_view_pic div.s_view_pic_zoom img ");
+		    	                                                
 		    	 // 이미지 태그로 들어옴
-		    	 System.out.println(poster.toString());
+		    	 System.out.println(poster.attr("src"));
 		    	 
 		    	 // 제목 타이틀 가져오깅
 		    	 Element title =doc2.selectFirst("div.s_view_info h3 p");
 		    	 System.out.println(title.text());
-		    	 // Element poster =doc2.select("").get(0);
 		     }
 		   }
 	   }catch(Exception ex) {}
