@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import ="java.util.*,com.sist.dao2.*"%>
 <%
-	FoodDAO dao = new FoodDAO();
-	ArrayList<FoodVO> list =dao.foodListData();
+   FoodDAO dao=new FoodDAO();
+   FoodVO vo=dao.foodDetailData();
 %>
 <!DOCTYPE html>
 
 <html>
 <head>
-<title>Gravity | Pages | Gallery</title>
+<title>Gravity | Pages | Sidebar Right</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
 </head>
 <body id="top">
 <!-- ################################################################################################ --> 
@@ -42,10 +45,10 @@
       <li><a href="../index.html">Home</a></li>
       <li class="active"><a class="drop" href="#">Pages</a>
         <ul>
-          <li class="active"><a href="gallery.html">Gallery</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="full-width.html">Full Width</a></li>
           <li><a href="sidebar-left.html">Sidebar Left</a></li>
-          <li><a href="sidebar-right.html">Sidebar Right</a></li>
+          <li class="active"><a href="sidebar-right.html">Sidebar Right</a></li>
           <li><a href="basic-grid.html">Basic Grid</a></li>
         </ul>
       </li>
@@ -88,47 +91,197 @@
   <main class="container clear"> 
     <!-- main body --> 
     <!-- ################################################################################################ -->
-    <div class="content"> 
-      <!-- ################################################################################################ -->
-      <div id="gallery">
-        <figure>
-          <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear">
-          <%
-          	  for(int i=0; i<list.size();i++)
-          	  {
-          	     FoodVO vo = list.get(i);
-          %>
-          	<li class="one_quarter <%= i%4==0? "first" : ""%>
-          	<a href="#">
-          	  <img src="<%=vo.getPoster() %>">
-          	 title="<%=vo.getName()%>"></a></li>
- 		  
-          <%
-          	  }
- 		  %>
-          </ul>
-          <figcaption>Gallery Description Goes Here</figcaption>
-        </figure>
+    <div class="content">
+       <table class="table">
+          <tr>
+             <%
+                StringTokenizer st=new StringTokenizer(vo.getPoster(),"^");
+                while(st.hasMoreTokens()){
+            %>
+                <td class="text-center"><img src="<%=st.nextToken() %>" style="width: 100%"></td>
+            <%
+                }
+             %>
+          </tr>
+       </table>
+    </div>
+    
+    <div class="content three_quarter first"> 
+      <table class="table">
+         <tr>
+            <td colspan="2">
+            <h3><%=vo.getName() %>&nbsp;<span style="color:orange;"><%=vo.getScore() %></span></h3>
+            </td>
+         </tr>
+         <tr>
+            <th width=20%>주소</th>
+            <td width=80%><%=vo.getAddress() %></td>
+         </tr>
+         <tr>
+            <th width=20%>전화</th>
+            <td width=80%><%=vo.getTel() %></td>
+         </tr>
+         <tr>
+            <th width=20%>음식종류</th>
+            <td width=80%><%=vo.getType() %></td>
+         </tr>
+         <tr>
+            <th width=20%>가격대</th>
+            <td width=80%><%=vo.getPrice() %></td>
+         </tr>
+         <tr>
+            <th width=20%>영업시간</th>
+            <td width=80%><%=vo.getTime() %></td>
+         </tr>
+         <tr>
+            <th width=20%>주차</th>
+            <td width=80%><%=vo.getParking() %></td>
+         </tr>
+         <tr>
+            <th width=20%>메뉴</th>
+            <td width=80%>
+               <ul>
+                  <%
+                     st=new StringTokenizer(vo.getMenu(),"원");
+                     while(st.hasMoreTokens()){
+                  %>
+                     <li><%=st.nextToken() %> 원</li>
+                  <%
+                     }
+                  %>
+               </ul>
+            </td>
+         </tr>
+      
+         
+      </table>
+      <div id="comments">
+        <h2>Comments</h2>
+        <ul>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <h2>Write A Comment</h2>
+        <form action="#" method="post">
+          <div class="one_third first">
+            <label for="name">Name <span>*</span></label>
+            <input type="text" name="name" id="name" value="" size="22">
+          </div>
+          <div class="one_third">
+            <label for="email">Mail <span>*</span></label>
+            <input type="text" name="email" id="email" value="" size="22">
+          </div>
+          <div class="one_third">
+            <label for="url">Website</label>
+            <input type="text" name="url" id="url" value="" size="22">
+          </div>
+          <div class="block clear">
+            <label for="comment">Your Comment</label>
+            <textarea name="comment" id="comment" cols="25" rows="10"></textarea>
+          </div>
+          <div>
+            <input name="submit" type="submit" value="Submit Form">
+            &nbsp;
+            <input name="reset" type="reset" value="Reset Form">
+          </div>
+        </form>
       </div>
       <!-- ################################################################################################ --> 
+    </div>
+    <!-- ################################################################################################ --> 
+    <!-- ################################################################################################ -->
+    <div class="sidebar one_quarter"> 
       <!-- ################################################################################################ -->
-      <nav class="pagination">
+      <h6>Lorem ipsum dolor</h6>
+      <nav class="sdb_holder">
         <ul>
-          <li><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next &raquo;</a></li>
+          <li><a href="#">Navigation - Level 1</a></li>
+          <li><a href="#">Navigation - Level 1</a>
+            <ul>
+              <li><a href="#">Navigation - Level 2</a></li>
+              <li><a href="#">Navigation - Level 2</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Navigation - Level 1</a>
+            <ul>
+              <li><a href="#">Navigation - Level 2</a></li>
+              <li><a href="#">Navigation - Level 2</a>
+                <ul>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Navigation - Level 1</a></li>
         </ul>
       </nav>
+      <div class="sdb_holder">
+        <h6>Lorem ipsum dolor</h6>
+        <address>
+        Full Name<br>
+        Address Line 1<br>
+        Address Line 2<br>
+        Town/City<br>
+        Postcode/Zip<br>
+        <br>
+        Tel: xxxx xxxx xxxxxx<br>
+        Email: <a href="#">contact@domain.com</a>
+        </address>
+      </div>
+      <div class="sdb_holder">
+        <article>
+          <h6>Lorem ipsum dolor</h6>
+          <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor sit</a></li>
+            <li>Etiam vel sapien et</li>
+            <li><a href="#">Etiam vel sapien et</a></li>
+          </ul>
+          <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed. Condimentumsantincidunt dui mattis magna intesque purus orci augue lor nibh.</p>
+          <p class="more"><a href="#">Continue Reading &raquo;</a></p>
+        </article>
+      </div>
       <!-- ################################################################################################ --> 
     </div>
     <!-- ################################################################################################ --> 

@@ -132,7 +132,7 @@
                <li>
                    <figure><img class="radius-10 btmspace-10" src="<%=vo.getPoster() %>" title="<%=vo.getSubject()%>"
                              style="width:320px; height:185px;">
-                     <figcaption><a href="#"><%=vo.getTitle() %></a></figcaption>
+                     <figcaption><a href="#">"<%=vo.getTitle() %>"</a></figcaption>
                   </figure>
                 </li>
          <%      

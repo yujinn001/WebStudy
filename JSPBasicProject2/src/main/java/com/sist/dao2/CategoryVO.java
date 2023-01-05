@@ -1,8 +1,10 @@
 package com.sist.dao2;
 
 public class CategoryVO {
+	
 	private int cno;
 	private String title, subject, poster;
+	
 	public int getCno() {
 		return cno;
 	}

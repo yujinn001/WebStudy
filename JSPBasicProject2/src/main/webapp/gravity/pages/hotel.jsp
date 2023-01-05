@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import ="java.util.*,com.sist.dao2.*"%>
+    pageEncoding="UTF-8" import ="java.util.*,com.sist.dao3.*"%>
 <%
-	FoodDAO dao = new FoodDAO();
-	ArrayList<FoodVO> list =dao.foodListData();
+	SeoulDAO dao = new SeoulDAO();
+	ArrayList<SeoulVO> list =dao.seoulData("hotel");
 %>
 <!DOCTYPE html>
 
@@ -40,13 +40,13 @@
     <!-- ################################################################################################ -->
     <ul class="clear">
       <li><a href="../index.html">Home</a></li>
-      <li class="active"><a class="drop" href="#">Pages</a>
+      <li class="active"><a class="drop" href="#">서울 여행</a>
         <ul>
-          <li class="active"><a href="gallery.html">Gallery</a></li>
-          <li><a href="full-width.html">Full Width</a></li>
-          <li><a href="sidebar-left.html">Sidebar Left</a></li>
-          <li><a href="sidebar-right.html">Sidebar Right</a></li>
-          <li><a href="basic-grid.html">Basic Grid</a></li>
+          <li class="active"><a href="location.jsp">명소</a></li>
+          <li><a href="nature.jsp">자연 & 관광</a></li>
+          <li><a href="shop.jsp">쇼핑</a></li>
+          <li><a href="hotel.jsp">호텔</a></li>
+          <li><a href="guest.jsp">게스트하우스</a></li>
         </ul>
       </li>
       <li><a class="drop" href="#">Dropdown</a>
@@ -92,17 +92,17 @@
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading">Gallery Title Goes Here</header>
+          <header class="heading">서울 호텔</header>
           <ul class="nospace clear">
           <%
           	  for(int i=0; i<list.size();i++)
           	  {
-          	     FoodVO vo = list.get(i);
+          	     SeoulVO vo = list.get(i);
           %>
           	<li class="one_quarter <%= i%4==0? "first" : ""%>
           	<a href="#">
           	  <img src="<%=vo.getPoster() %>">
-          	 title="<%=vo.getName()%>"></a></li>
+          	 title="<%=vo.getTitle()%>"></a></li>
  		  
           <%
           	  }
