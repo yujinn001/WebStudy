@@ -206,7 +206,7 @@ public class BoardDAO {
 			rs.next();
 			String db_pwd =rs.getString(1);
 			rs.close();
-			
+			System.out.println("db"+db_pwd + "pwd"+vo.getPwd());
 			// 비밀번호를 체크
 			if(db_pwd.equals(vo.getPwd()))
 			{
@@ -214,7 +214,7 @@ public class BoardDAO {
 				// 실제 수정!! => sql
 				sql ="UPDATE jsp_board SET "
 					+ "name =?, subject=?, content =? "
-					+ "WHERE no=?";
+					+ "WHERE no=? ";
 				ps =conn.prepareStatement(sql);
 				ps.setString(1, vo.getName());
 				ps.setString(2, vo.getSubject());
@@ -268,6 +268,43 @@ public class BoardDAO {
 		return vo;
 	}
 	// 삭제 => ---------------
+	public boolean boardDelete(int no, String pwd)
+	{
+		boolean bCheck=false;
+		try
+		{
+			getConnection();
+			// 비밀번호 체크
+			String sql ="SELECT pwd FROM jsp_board "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			String db_pwd =rs.getString(1);
+			rs.close();
+			
+			if(db_pwd.equals(pwd))//삭제
+			{
+				sql="DELETE FROM jsp_board "
+						+ "WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ps.executeUpdate();
+				
+				bCheck =true;
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConneciton();
+		}
+		return bCheck;
+	}
 	// 찾기 => <select> <checkbox> => 파일 안에서 처리
 }
 

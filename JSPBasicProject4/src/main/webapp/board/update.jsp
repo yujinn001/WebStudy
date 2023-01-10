@@ -37,7 +37,7 @@ h1{
 				  <tr>
 				  	<th class="text-right success" width =20% >이름</th>
 				  	<td width =80%>
-				  		<input type =text name=name size=15 class ="input-sm" value ="<%=vo.getName()%>">
+				  		<input type =text name=name size=15 class ="input-sm" value ="<%=vo.getName()%>" required> <!-- required : 반드시 입력 하게 한다 -->
 				  		<input type =hidden name =no value ="<%=vo.getNo() %>"> 
 				  		<!-- hidden : 사용자에게는 데이터가 안보인다 , 데이터 전송은 가능 -->
 				  	</td>		  	  
@@ -45,19 +45,19 @@ h1{
 				  <tr>
 				  	<th class="text-right success" width =20% >제목</th>
 				  	<td width =80%>
-				  		<input type =text name=subject size=50 class ="input-sm" value ="<%=vo.getSubject()%>">
+				  		<input type =text name=subject size=50 class ="input-sm" value ="<%=vo.getSubject()%>" required>
 				  	</td>		  	  
 				  </tr>	
 				  <tr>
 				  	<th class="text-right  success" width =20%>내용</th>
 				  	<td width =80%>
-				  		<textarea rows="10" cols="50" name =content><%=vo.getContent()%></textarea>
+				  		<textarea rows="10" cols="50" name =content required><%=vo.getContent()%></textarea>
 				  	</td>		  	  
 				  </tr>	
 				  <tr>
 				  	<th class="text-right  success" width =20%>비밀번호</th>
 				  	<td width =80%>
-				  		<input type ="password" name=pwd size=10 class ="input-sm">
+				  		<input type ="password" name=pwd size=10 class ="input-sm" required>
 				  	</td>		  	  
 				  </tr>
 				  <tr>
