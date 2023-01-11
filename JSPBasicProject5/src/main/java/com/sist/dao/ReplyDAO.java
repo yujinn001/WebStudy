@@ -119,6 +119,28 @@ public class ReplyDAO {
          return count;
       }
       // 댓글 수정
+      public void replyUpdate(int no, String msg)
+      {
+    	  try
+    	  {
+    		  getConnection();
+    		  String sql ="UPDATE jsp_reply SET "
+    		  		+ "msg =? "
+    		  		+ "WHERE  no =?";
+    		  ps =conn.prepareStatement(sql);
+    		  ps.setString(1, msg);
+    		  ps.setInt(2, no);
+    				  
+    		  ps.executeUpdate();
+    	  }catch(Exception ex)
+    	  {
+    		  ex.printStackTrace();
+    	  }
+    	  finally
+    	  {
+    		  disConnection();
+    	  }
+      }
       // 댓글 삭제
       public void replyDeleteData(int no)
       {
