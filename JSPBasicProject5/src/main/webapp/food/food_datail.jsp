@@ -203,6 +203,7 @@
                       <td colspan="2">
                          <form method=post action="../reply/reply_update.jsp">
                           <input type =hidden name =no value ="<%=rvo.getNo() %>">
+                          <%-- 수정에 필요한 변수 --%>
                           <input type=hidden name=fno value="<%= vo.getFno()%>"> <!-- 맛집번호에 댓글을 올리겠다 -->
                           <%-- 화면으로 다시 이동 (맛집 상세보기) --%>
                           <textarea rows="4" cols="50" name="msg" style="float: left"><%=rvo.getMsg() %></textarea>
