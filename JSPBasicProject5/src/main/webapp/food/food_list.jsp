@@ -17,6 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+       
 	<div class="jumbotron">
 		<h2 class="text-center"><%=vo.getTitle() %></h2>
 		<h4 class="text-center"><%=vo.getSubject() %></h4>
