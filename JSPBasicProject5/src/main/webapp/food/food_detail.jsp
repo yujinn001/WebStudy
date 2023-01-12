@@ -5,6 +5,7 @@
 <%
      String fno=request.getParameter("fno");
      // FoodVO
+     FoodDAO dao= new FoodDAO();
      FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
      String address=vo.getAddress();
      String addr1=address.substring(0,address.lastIndexOf("지"));

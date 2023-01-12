@@ -43,8 +43,8 @@
 	          <li><a href="#">신상품</a></li>
 	        </ul>
 	      </li>
-	      <li><a href="#">커뮤니티</a></li>
-	      <li><a href="#">맛집 검색</a></li>
+	      <li><a href="../main/main.jsp?mode=5">커뮤니티</a></li>
+          <li><a href="../main/main.jsp?mode=4">맛집검색</a></li>	     
 	    </ul>
 	  </div>
 	</nav>
