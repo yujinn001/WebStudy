@@ -22,7 +22,11 @@
 	     5. 쿠키 읽기 
 	     6. 삭제 
 	     
-	  Session	 
+	  Session	
+	  
+	  page
+	  config
+	  exception 
  --%>
 <%
 	// 번호를 가지고 카테고리 화면 변경?
