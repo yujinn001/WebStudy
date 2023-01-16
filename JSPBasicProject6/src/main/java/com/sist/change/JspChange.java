@@ -9,7 +9,11 @@ public class JspChange {
 			"../seoul/shop.jsp",
 			"../food/food_find.jsp",
 			"../databoard/list.jsp",
-			"../food/food_detail.jsp"
+			"../food/food_detail.jsp",
+			"../databoard/insert.jsp",
+			"../databoard/detail.jsp",
+			"../databoard/delete.jsp",
+			"../databoard/update.jsp"
 	};
 	
 	public static String change(int no)
