@@ -39,14 +39,9 @@ public class FoodDAO {
 			 		+ "FROM (SELECT fno, name, poster,rownum as num "
 			 		+ "FROM(SELECT fno, name, poster "
 			 		+ "FROM food_location ORDER BY fno ASC)) "
-			 		+ "WHERE num BETWEEN ? AND ?";
+			 		+ "WHERE num BETWEEN 1 AND 20";
 			 ps=conn.prepareStatement(sql);
 			 
-			 int rowSize =20;
-			 int start = (rowSize*page) - (rowSize-1);
-			 int end =rowSize*page;
-			 ps.setInt(1, start);
-			 ps.setInt(2, end);
 			 
 			 ResultSet rs = ps.executeQuery();
 			 while(rs.next())

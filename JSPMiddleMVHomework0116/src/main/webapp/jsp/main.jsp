@@ -29,7 +29,7 @@
 	  <div class="row">
 	     <h1>food_location 테이블</h1>
 	     <hr>
-	     <c:forEach var ="vo" items="${list }">
+  	     <c:forEach var ="vo" items="${list }">
 	        <div class="col-md-4">
                    <div class="thumbnail">
                      <a href="food_list.jsp?cno=${vo.fno }">
@@ -40,10 +40,7 @@
                      </a>
                    </div>
               </div>
-	     </c:forEach>
-	    <table  class="table">
-	      
-	    </table>
+	     </c:forEach>  
 	  </div>
 	</div>
 </body>
