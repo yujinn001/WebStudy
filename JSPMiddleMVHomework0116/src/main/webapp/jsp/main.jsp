@@ -22,12 +22,13 @@
    width: 960px;
    margin: 0px auto;
 }
+
 </style>
 </head>
 <body>
 	<div class="container">
 	  <div class="row">
-	     <h1>food_location 테이블</h1>
+	     <h1 class="text-center">food_location 테이블</h1>
 	     <hr>
   	     <c:forEach var ="vo" items="${list }">
 	        <div class="col-md-4">
