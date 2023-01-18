@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target(TYPE) 
 // 클래스 구분
-public @interface Controlller {
+public @interface Controller {
 
 }

@@ -1,6 +1,8 @@
 package com.sist.dao;
 import java.util.*;
 
+import javax.sql.RowSet;
+
 import com.sist.vo.GoodsVO;
 
 import java.sql.*;
@@ -76,19 +78,29 @@ public class GoodsDAO {
 		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
 		try
 		{
-			/*
-			 * NO                NOT NULL NUMBER         
-GOODS_NAME        NOT NULL VARCHAR2(1000) 
-GOODS_SUB                  VARCHAR2(1000) 
-GOODS_PRICE       NOT NULL VARCHAR2(50)   
-GOODS_DISCOUNT             NUMBER         
-GOODS_FIRST_PRICE          VARCHAR2(20)   
-GOODS_DELIVERY    NOT NULL VARCHAR2(20)   
-GOODS_POSTER               VARCHAR2(260)  
-HIT                        NUMBER       
-			 */
 			conn= CreateConnection.getConnection();
-			String sql ="select no, goods_name"
+			String sql ="select no, goods_name, goods_poster, num "
+					+ "from (select no, goods_name, goods_poster,rownum as num "
+					+ "from (select /*+index_asc(goods_special gs_no_pk )*/no, goods_name, goods_poster "
+					+ "from goods_special))"
+					+ " where num between ? and ?";
+			ps =conn.prepareStatement(sql);
+			int rowSize =20;
+			int start =(rowSize*page)-(rowSize-1);
+			int end= rowSize*page;
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			
+			ResultSet rs =ps.executeQuery();
+			while(rs.next())
+			{
+				GoodsVO vo = new GoodsVO();
+				 vo.setNo(rs.getInt(1));
+		         vo.setGoods_name(rs.getString(2));
+		         vo.setGoods_poster(rs.getString(3));
+		         list.add(vo);
+			}
+			rs.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -97,6 +109,28 @@ HIT                        NUMBER
 			CreateConnection.disConnection(conn, ps);
 		}
 		return list; 
+	}
+	public int goodsSpecialTotalPage()
+	{
+		int total=0;
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql ="select ceil(count(*)/20.0) from goods_special";
+			ps =conn.prepareStatement(sql);
+			ResultSet rs =ps.executeQuery();
+			rs.next();
+			total =rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return  total;
 	}
 	// 3. 베스트
 	public ArrayList<GoodsVO> goodsBestListData(int page){

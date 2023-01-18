@@ -1,8 +1,8 @@
 package com.sist.model;
 
-import com.sist.controller.Controlller;
+import com.sist.controller.Controller;
 
-@Controlller
+@Controller
 public class SeoulModel {
 
 }

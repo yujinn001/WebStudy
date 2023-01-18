@@ -1,6 +1,6 @@
 package com.sist.model;
 
-import com.sist.controller.Controlller;
+import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
 import java.util.*;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.dao.*;
 import com.sist.vo.*;
 
-@Controlller // 어노테이션
+@Controller // 어노테이션
 public class MainModel {
 	@RequestMapping("main/main.do")
 	public String main_page(HttpServletRequest request, HttpServletResponse response)

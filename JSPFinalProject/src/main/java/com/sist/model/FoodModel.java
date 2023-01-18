@@ -1,6 +1,6 @@
 package com.sist.model;
 
-import com.sist.controller.Controlller;
+import com.sist.controller.Controller;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import com.sist.controller.RequestMapping;
  *     JSP ==> Model ==> DAO
  *         <==      <==
  */
-@Controlller // dispatcherservlet을 찾으려면   Controller가 필요
+@Controller // dispatcherservlet을 찾으려면   Controller가 필요
 public class FoodModel {
 	@RequestMapping("food/food_location.do")
 	public String food_location(HttpServletRequest request, HttpServletResponse response)

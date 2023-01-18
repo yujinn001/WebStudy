@@ -92,7 +92,7 @@ public class DispatcherServlet extends HttpServlet {
 			{
 				Class clsName =Class.forName(cls);
 				// 클래스 위에 @Controller가 없는 경우에는 제외 => 스프링
-				if(clsName.isAnnotationPresent(Controlller.class)==false)
+				if(clsName.isAnnotationPresent(Controller.class)==false)
 					continue;
 				// 1) 메모리 할당 (클래스)
 				Object obj =clsName.getDeclaredConstructor().newInstance();
