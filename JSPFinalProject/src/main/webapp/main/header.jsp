@@ -15,8 +15,8 @@
     </div>
     <div class="fl_right">
       <ul class="inline">
-        <li>ID : <input type="text" name=id size=10 class="input-sm" placeholder="ID"></li>
-        <li>PW : <input type="password" name=pwd size=10 class="input-sm" placeholder="Password"></li>
+        <li>ID : <input type="text" name=id size=10 class="input-sm" placeholder=" ID"></li>
+        <li>PW : <input type="password" name=pwd size=10 class="input-sm" placeholder=" Password"></li>
         <li><input type="button" class="btn btn-lg btn-danger" value="로그인"></li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
       </li>
       <li><a class="drop" href="#">맛집</a>
         <ul>
-          <li><a href="pages/gallery.html">지역별맛집검색</a></li>
+          <li><a href="../food/food_location.do">지역별맛집검색</a></li>
           <li><a href="pages/full-width.html">맛집추천</a></li>
           <li><a href="pages/sidebar-left.html">맛집예약</a></li>
         </ul>
@@ -59,9 +59,9 @@
       <li><a class="drop" href="#">스토어</a>
         <ul>
           <li><a href="../goods/goods_all.do">전체</a></li>
-          <li><a href="pages/full-width.html">신상품</a></li>
-          <li><a href="pages/full-width.html">특가</a></li>
-          <li><a href="pages/full-width.html">베스트</a></li>
+          <li><a href="../goods/goods_new.do">신상품</a></li>
+          <li><a href="../goods/goods_sp.do">특가</a></li>
+          <li><a href="../goods/goods_best.do">베스트</a></li>
         </ul>
       </li>
       <li><a class="drop" href="#">커뮤니티</a>
