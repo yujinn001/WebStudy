@@ -18,9 +18,9 @@ public class MainModel {
 	{
 		FoodDAO dao = new FoodDAO();
 		ArrayList<CategoryVO> list =dao.foodCategoryData();
-		request.setAttribute("list", list);
+		request.setAttribute("list", list); //home.jsp
 		// include할 파일명을 전송
-		request.setAttribute("main_jsp","../main/home.jsp");
+		request.setAttribute("main_jsp","../main/home.jsp"); //main.jsp
 		return "../main/main.jsp";
 	}
 }
