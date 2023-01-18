@@ -15,8 +15,8 @@
     </div>
     <div class="fl_right">
       <ul class="inline">
-        <li>ID : <input type="text" name=id size=10 class="input-sm" placeholder="ID"></li>
-        <li>PW : <input type="password" name=pwd size=10 class="input-sm" placeholder="Password"></li>
+        <li>ID<input type="text" name=id size=10 class="input-sm" placeholder="ID"></li>
+        <li>PW<input type="password" name=pwd size=10 class="input-sm" placeholder="Password"></li>
         <li><input type="button" class="btn btn-lg btn-danger" value="로그인"></li>
       </ul>
     </div>
