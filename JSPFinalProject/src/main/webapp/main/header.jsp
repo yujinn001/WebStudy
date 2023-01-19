@@ -55,11 +55,11 @@
       </li>
       <li><a class="drop" href="#">여행</a>
         <ul>
-          <li><a href="pages/gallery.html">명소</a></li>
-          <li><a href="pages/full-width.html">자연&관광</a></li>
-          <li><a href="pages/sidebar-left.html">쇼핑</a></li>
-          <li><a href="pages/sidebar-left.html">호텔</a></li>
-          <li><a href="pages/sidebar-left.html">게스트하우스</a></li>
+          <li><a href="../seoul/seoul_list.do?type=1">명소</a></li>
+          <li><a href="../seoul/seoul_list.do?type=2">자연&관광</a></li>
+          <li><a href="../seoul/seoul_list.do?type=3">쇼핑</a></li>
+          <li><a href="../seoul/seoul_list.do?type=4">호텔</a></li>
+          <li><a href="../seoul/seoul_list.do?type=5">게스트하우스</a></li>
           <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/sidebar-left.html">여행코스</a></li>
             </c:if>
