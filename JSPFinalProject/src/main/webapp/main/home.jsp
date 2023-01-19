@@ -51,8 +51,8 @@
       <c:forEach var ="vo" items ="${list }" varStatus="s"><!-- list의 index번호를 쓸때 사용한다 (varStatus) --> 
         <c:if test="${s.index>=0&& s.index<12 }">
 	        <li>
-	          <figure><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }">
-	            <figcaption><a href="#">${vo.title }</a></figcaption>
+	          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }"></a>
+	            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 	          </figure>
 	        </li> 
         </c:if>
@@ -65,9 +65,9 @@
 	   <c:forEach var ="vo" items ="${list }" varStatus="s"><!-- list의 index번호를 쓸때 사용한다 (varStatus) --> 
 	        <c:if test="${s.index>=12&& s.index<18}">
 		        <li>
-		          <figure><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }">
-		            <figcaption><a href="#">${vo.title }</a></figcaption>
-		          </figure>
+		          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }"></a>
+		            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
+		          </figure>                 <!-- 목록을 보여준다 -->
 		        </li> 
 	        </c:if>
 	  </c:forEach>      
@@ -79,8 +79,8 @@
         <c:forEach var ="vo" items ="${list }" varStatus="s"><!-- list의 index번호를 쓸때 사용한다 (varStatus) --> 
 	        <c:if test="${s.index>=18&& s.index<30 }">
 		        <li>
-		          <figure><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }">
-		            <figcaption><a href="#">${vo.title }</a></figcaption>
+		          <figure><a href="../food/food_list.do?cno=${vo.cno }"><img class="radius-10 btmspace-10" src="${vo.poster }"title="${vo.subject }"></a>
+		            <figcaption><a href="../food/food_list.do?cno=${vo.cno }">${vo.title }</a></figcaption>
 		          </figure>
 		        </li> 
 	        </c:if>

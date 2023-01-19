@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>맛집 & 여행</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="wrapper row3">
@@ -15,20 +18,16 @@
 	      <!-- ################################################################################################ -->
 	      <div id="gallery">
 	        <figure>
-	          <header class="heading">Gallery Title Goes Here</header>
+	          <header class="heading">
+	           <form method =post action="../food/food_location.do" class="inline" >
+	           	 <input type= "text" name ="ss" size=25 class="input-sm" value="${ss }">
+	           	 <input type =submit value= "검색">
+	           </form>
+	          </header>
 	          <ul class="nospace clear">
-	            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
-	            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/gallery.gif" alt=""></a></li>
+	           <c:forEach var ="vo" items="${list }" varStatus="s">
+	            <li class="one_quarter ${s.index%4==0?'first':'' }"><a href="#"><img src="${vo.poster }" title="${vo.name }"></a></li>
+	            </c:forEach>
 	          </ul>
 	          <figcaption>Gallery Description Goes Here</figcaption>
 	        </figure>
@@ -37,18 +36,9 @@
 	      <!-- ################################################################################################ -->
 	      <nav class="pagination">
 	        <ul>
-	          <li><a href="#">&laquo; Previous</a></li>
-	          <li><a href="#">1</a></li>
-	          <li><a href="#">2</a></li>
-	          <li><strong>&hellip;</strong></li>
-	          <li><a href="#">6</a></li>
-	          <li class="current"><strong>7</strong></li>
-	          <li><a href="#">8</a></li>
-	          <li><a href="#">9</a></li>
-	          <li><strong>&hellip;</strong></li>
-	          <li><a href="#">14</a></li>
-	          <li><a href="#">15</a></li>
-	          <li><a href="#">Next &raquo;</a></li>
+	        <c:forEach var ="i" begin="1" end="${totalpage }">
+	          <li ${i==curpage?'class=current':'' }><a href="../food/food_location.do?ss=${ss }&page=${i }">${i }</a></li>
+	         </c:forEach>
 	        </ul>
 	      </nav>
 	      <!-- ################################################################################################ --> 
