@@ -48,13 +48,13 @@
       <nav class="pagination">
         <ul>
           <c:if test="${startPage>1 }">
-          <li><a href="../seoul/seoul_list.do?page=${startPage-1 }">&laquo; Previous</a></li>
+          <li><a href="../seoul/seoul_list.do?&page=${startPage-1 }">&laquo; Previous</a></li>
           </c:if>
            <c:forEach var="i" begin="${startPage }" end="${endPage }">
-            <li ${i==curpage?"class==current":"" }><a href="../seoul/seoul_list.do?page=${i }">${i}</a></li>
+            <li ${i==curpage?"class==current":"" }><a href="../seoul/seoul_list.do?type=${type }&page=${i }">${i}</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li><a href="../seoul/seoul_list.do?page=${endPage+1 }">Next &raquo;</a></li>
+          <li><a href="../seoul/seoul_list.do?type=${type }&page=${endPage+1 }">Next &raquo;</a></li>
           </c:if>
         </ul>
       </nav>
