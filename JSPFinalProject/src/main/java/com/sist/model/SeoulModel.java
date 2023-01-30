@@ -50,6 +50,7 @@ public class SeoulModel {
       
       
       request.setAttribute("main_jsp", "../seoul/seoul_list.jsp");
+      CommonsModel.footerData(request); //main.jsp있는 곳에 추가 시켜두기
       return "../main/main.jsp";
    }
 }

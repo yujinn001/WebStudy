@@ -50,6 +50,7 @@ public class RecipeModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("main_jsp", "../recipe/list.jsp");
+		CommonsModel.footerData(request);
 		// 화면 이동
 		return "../main/main.jsp";
 	}

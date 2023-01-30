@@ -92,9 +92,11 @@
           </c:if>
           <tr>
             <td colspan=2 class="text-right">
+            <c:if test="${sessionScope.id!=null }"><!-- 회원제 처리 -->
               <a href="#" class="btn btn-xs btn-info">좋아요(0)</a>
               <a href="#" class="btn btn-xs btn-success">찜하기</a>
               <a href="#" class="btn btn-xs btn-warning">예약</a>
+            </c:if>
               <a href="javascript:history.back()" class="btn btn-xs btn-danger">목록</a>
             </td>
           </tr>

@@ -65,6 +65,7 @@ public class FreeBoardModel {
 		request.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date())); // 날짜는 모델에서 보내야한다 (필요한 데이터는)
 		//////////////////////////////////////////////////// JSP 출력을 위해 전송하는 데이터
 		request.setAttribute("main_jsp", "../freeboard/list.jsp");
+		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("freeboard/insert.do")
@@ -72,6 +73,7 @@ public class FreeBoardModel {
 	{
 		// 중간에 들어가는 파일을 지정
 		request.setAttribute("main_jsp", "../freeboard/insert.jsp");
+		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("freeboard/insert_ok.do")
@@ -110,6 +112,7 @@ public class FreeBoardModel {
 		
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../freeboard/detail.jsp"); // 클릭시 마다 데이터가 틀린 경우
+		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
 	
