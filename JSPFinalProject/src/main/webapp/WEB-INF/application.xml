@@ -9,4 +9,8 @@
   <bean class="com.sist.model.FreeBoardModel"/>
   <bean class="com.sist.model.RecipeModel"/>
   <bean class="com.sist.model.MemberModel"/>
+  <bean class="com.sist.model.AllReplyModel"/>
+  <bean class="com.sist.model.MyPageModel"/>
+  <bean class="com.sist.model.NoticeModel"/>
+  <bean class="com.sist.model.AdminModel"/> 
 </beans>

@@ -11,10 +11,18 @@ HIT              NUMBER
  */
 import java.util.*;
 public class NoticeVO {
-	private int no, hit;
-	private String type,name,subject, content,dbday;
+	private int no, hit,type;
+	private String name,subject, content,dbday,prefix;
 	private Date regdate;
+	
+	public String getPrefix() {
+		return prefix;
+	}
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
 	public int getNo() {
+		
 		return no;
 	}
 	public void setNo(int no) {
@@ -26,10 +34,10 @@ public class NoticeVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	public String getName() {

@@ -1,6 +1,7 @@
 package com.sist.dao;
 import java.util.*;
 
+import com.sist.vo.FoodVO;
 import com.sist.vo.SeoulVO;
 
 import java.sql.*;
@@ -73,8 +74,95 @@ public class SeoulDAO {
       }
       return total;
    }
-   //1.1목록
-   //1.1_1 총페이지
+  
    //1.2상세
+   public SeoulVO seoulDetail(int no)
+   {
+	   SeoulVO vo = new SeoulVO();
+	   try
+	   {
+		   conn=CreateConnection.getConnection();
+		   String sql="update seoul_location set "
+		   		+ "hit =hit+1 "
+		   		+ "where no =?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setInt(1, no);
+		   ps.executeUpdate();
+		   
+		   sql="select no, title, poster, msg,address "
+		   		+ "from seoul_location "
+		   		+ "where no =?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setInt(1, no);
+		   ResultSet rs =ps.executeQuery();
+		   rs.next();
+		   vo.setNo(rs.getInt(1));
+		   vo.setTitle(rs.getString(2));
+		   vo.setPoster(rs.getString(3));
+		   vo.setMsg(rs.getString(4));
+		   vo.setAddress(rs.getString(5));
+		   rs.close();
+				   
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   finally
+	   {
+		   CreateConnection.disConnection(conn, ps);
+	   }
+	   return vo;
+   }
+   // 인근 맛집 읽기
+   public List<FoodVO>  seoulFoodFind(String addr)
+   {
+	   List<FoodVO> list=new ArrayList<FoodVO>();
+	      try
+	      {
+	         conn=CreateConnection.getConnection();
+	         String sql="SELECT fno,poster,name,type "
+	               +"FROM food_location "
+	               +"WHERE address LIKE '%'||?||'%' AND rownum<=12";
+	         ps=conn.prepareStatement(sql);
+	         ps.setString(1, addr);
+	         ResultSet rs=ps.executeQuery();
+	         while(rs.next())
+	         {
+	            FoodVO vo=new FoodVO();
+	            vo.setFno(rs.getInt(1));
+	            String poster=rs.getString(2);
+	            poster=poster.substring(0,poster.indexOf("^")); // 포스터 5개씩 
+	            vo.setPoster(poster);
+	            vo.setName(rs.getString(3));
+	            vo.setType(rs.getString(4));
+	            list.add(vo);
+	         }
+	         
+	      }catch(Exception ex)
+	      {
+	         ex.printStackTrace();
+	      }
+	      finally
+	      {
+	         CreateConnection.disConnection(conn, ps);
+	      }
+	      return list;
+	   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

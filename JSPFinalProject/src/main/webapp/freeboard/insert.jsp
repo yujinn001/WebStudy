@@ -44,7 +44,7 @@
 	  <tr>
 	    <th width =15% class="text-right">내용</th>
 	    <td width =80%>
-	      <textarea row="10" cols="60" name ="content"></textarea>
+	      <textarea rows="10" cols="60" name ="content"></textarea>
 	    </td>
 	  </tr>
 	  <tr>
