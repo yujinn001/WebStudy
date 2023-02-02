@@ -1,6 +1,7 @@
 package com.sist.dao;
 import java.util.*;
 
+import com.sist.controller.RequestMapping;
 import com.sist.vo.NoticeVO;
 
 import java.sql.*;
@@ -113,7 +114,154 @@ public class NoticeDAO {
 	   }
 	   return total;
    }
+   /* 오라클 : JOIN (inner, outer), subquery
+             view(inline view)=> top-n
+   */
+   public void noticeInsert(NoticeVO vo)
+   {
+	   try
+	   {
+		   conn=CreateConnection.getConnection();
+		   String sql = "insert into project_notice values( "
+	               +"(select nvl(max(no)+1,1) from project_notice),?,?,?,?,SYSDATE, 0)";
+		   ps=conn.prepareStatement(sql);
+		   ps.setInt(1, vo.getType());
+		   ps.setString(2, vo.getName());
+		   ps.setString(3, vo.getSubject());
+		   ps.setString(4, vo.getContent());
+		   ps.executeUpdate();// 자동 커밋
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   finally
+	   {
+		   CreateConnection.disConnection(conn, ps);
+	   }
+   }
+   public void noticeDelete(int no)
+   {
+	   try
+	   {
+		   conn=CreateConnection.getConnection();
+		   String sql ="delete from project_notice where no=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setInt(1, no);
+		   ps.executeUpdate();// 자동 커밋
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   finally
+	   {
+		   CreateConnection.disConnection(conn, ps);
+	   }
+   }
+   public NoticeVO noticeUpdateData(int no)
+   {
+	   NoticeVO vo=new NoticeVO();
+	   try
+	   {
+		   conn=CreateConnection.getConnection();
+		   String sql ="select no,name,subject,content,type "
+		   		+ "from project_notice "
+		   		+ "where no=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setInt(1, no);
+		   ResultSet rs =ps.executeQuery();
+		   rs.next();
+		   vo.setNo(rs.getInt(1));
+		   vo.setName(rs.getString(2));
+		   vo.setSubject(rs.getString(3));
+		   vo.setContent(rs.getString(4));
+		   vo.setType(rs.getInt(5));
+		   rs.close();
+	   }catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   finally
+	   {
+		   CreateConnection.disConnection(conn, ps);
+	   }
+	   return vo;
+   }
+     public void noticeUpdate(NoticeVO vo)
+     {
+    	  try
+    	  {
+    		  conn=CreateConnection.getConnection();
+    		  String sql ="update project_notice set "
+    		  		+ "type=?,subject=?,content=?"
+    		  		+ "where no=?";
+    		  ps=conn.prepareStatement(sql);
+    		  ps.setInt(1, vo.getType());
+    		  ps.setString(2, vo.getSubject());
+    		  ps.setString(3, vo.getContent());
+    		  ps.setInt(4, vo.getNo());
+    		  
+    		  
+    	  }catch (Exception e) {
+			 e.printStackTrace();
+		  }
+    	  finally
+    	  {
+    		  CreateConnection.disConnection(conn, ps);
+    	  }
+     }
+     public NoticeVO noticeDetailData(int no)
+     {
+  	   NoticeVO vo=new NoticeVO();
+  	   try
+  	   {
+  		   conn=CreateConnection.getConnection();
+  		   String  sql="update project_notice set "
+  		   		+ "hit =hit+1"
+  		   		+ " where no=?";
+  		   ps=conn.prepareStatement(sql);
+  		   ps.setInt(1, no);
+  		   ps.executeUpdate();
+  		   
+  		   sql ="select no,name,subject,content,type,hit,to_char(regdate,'yyyy-mm-dd HH24:MI:SS') "
+  		   		+ "from project_notice "
+  		   		+ "where no=?";
+  		   ps=conn.prepareStatement(sql);
+  		   ps.setInt(1, no);
+  		   ResultSet rs =ps.executeQuery();
+  		   rs.next();
+  		   vo.setNo(rs.getInt(1));
+  		   vo.setName(rs.getString(2));
+  		   vo.setSubject(rs.getString(3));
+  		   vo.setContent(rs.getString(4));
+  		   vo.setType(rs.getInt(5));
+  		   vo.setHit(rs.getInt(6));
+  		   vo.setDbday(rs.getString(7));
+  		   rs.close();
+  	   }catch (Exception e) {
+  		   e.printStackTrace();
+  	   }
+  	   finally
+  	   {
+  		   CreateConnection.disConnection(conn, ps);
+  	   }
+  	   return vo;
+     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

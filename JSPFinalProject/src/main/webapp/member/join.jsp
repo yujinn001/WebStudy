@@ -264,7 +264,7 @@ $(function(){
       <tr>
        <th class="text-right" width=15%>소개</th>
        <td width=85%>
-         <textarea rows="10" cols="100" id="content" name="content"></textarea>
+         <textarea rows="10" cols="100" id="content" name="content">${vo.content }</textarea>
        </td>
       </tr>
       <tr>

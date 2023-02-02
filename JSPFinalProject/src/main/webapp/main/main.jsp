@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=474ea1f30b292f1e0644ae92fbff2778&libraries=services"></script>
 <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -25,8 +26,11 @@
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 <!-- JAVASCRIPTS --> 
 <script src="../js/jquery.min.js"></script> 
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="../js/jquery.backtotop.js"></script> 
 <script src="../js/jquery.mobilemenu.js"></script> 
 <script src="../js/jquery.flexslider-min.js"></script>
+
 </body>
 </html>

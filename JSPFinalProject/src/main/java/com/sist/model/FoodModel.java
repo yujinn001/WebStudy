@@ -5,8 +5,10 @@ import com.sist.controller.RequestMapping;
 
 import java.util.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.vo.*;
 import com.sist.dao.*;
@@ -73,7 +75,29 @@ public class FoodModel {
 	   CommonsModel.footerData(request);
 	   return "../main/main.jsp";
    }
-   
+   @RequestMapping("food/food_before_detail.do")
+   public String food_before_detail(HttpServletRequest request,HttpServletResponse response)
+   {
+	   HttpSession session=request.getSession();
+	   String id=(String)session.getAttribute("id");
+	   
+	   String user="";
+	   
+	   if(id==null)
+		   user="guest";
+	   else
+		   user=id;
+		 
+	   String fno =request.getParameter("fno");
+	   try
+	   {
+		   Cookie cookie=new Cookie(user+"_food"+fno, fno);
+		   cookie.setPath("/");
+		   cookie.setMaxAge(60*60*24);// 저장시간 => 하루
+		   response.addCookie(cookie); // addCookie 각자의 브라우저에 
+	   }catch(Exception ex) {}
+	   return "redirect:../food/food_detail.do?fno="+fno;
+   }
    @RequestMapping("food/food_detail.do")
    public String food_detail(HttpServletRequest request,HttpServletResponse response)
    {
@@ -106,7 +130,7 @@ public class FoodModel {
 		   type=type.replace('/','|');
 	   }
 	   List<RecipeVO> nList=dao.food_recipe_data(type);
-	   request.setAttribute("nList", nList);
+	   request.setAttribute("nList1", nList);
 	   
 	   return "../main/main.jsp";
    }

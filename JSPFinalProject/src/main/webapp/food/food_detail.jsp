@@ -231,7 +231,7 @@ $(function(){
         <table class="table">
          <tr>
           <td>
-           <c:forEach var ="kvo" items="${nList }">
+           <c:forEach var ="kvo" items="${nList1 }">
             <table class="table">
              <tr>
                <td>

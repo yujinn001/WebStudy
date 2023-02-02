@@ -10,62 +10,62 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	// 로그인 버튼 
-	$('#logBtn').click(function(){
-		// id,pwd => Model로 전송 
-		let id=$('#log_id').val();
-		if(id.trim()==="")
-		{
-			$('#log_id').focus();
-			return
-		}
-		let pwd=$('#log_pwd').val();
-		if(pwd.trim()==="")
-		{
-			$('#log_pwd').focus();
-			return
-		}
-		
-		$.ajax({
-			type:'post',
-			url:'../member/login.do',
-			data:{"id":id,"pwd":pwd},
-			success:function(result)
-			{
-				// NOID , NOPWD , OK
-				let res=result.trim();
-				if(res==='NOID')
-				{
-					alert("아이디가 존재하지 않습니다!!")
-					$('#log_id').val("");
-					$('#log_pwd').val("");
-					$('#log_id').focus()
-				}
-				else if(res==='NOPWD')
-				{
-					alert("비밀번호가 틀립니다!!")
-					$('#log_pwd').val("")
-					$('#log_pwd').focus()
-				}
-				else
-				{
-					location.href="../main/main.do";
-				}
-			}
-		})
-		
-	})
-	// 로그아웃 버튼 
-	$('#logoutBtn').click(function(){
-		$.ajax({
-			type:'post',
-			url:'../member/logout.do',
-			success:function(result)
-			{
-				location.href="../main/main.do";
-			}
-		})
-	})
+   // 로그인 버튼 
+   $('#logBtn').click(function(){
+      // id,pwd => Model로 전송 
+      let id=$('#log_id').val();
+      if(id.trim()==="")
+      {
+         $('#log_id').focus();
+         return
+      }
+      let pwd=$('#log_pwd').val();
+      if(pwd.trim()==="")
+      {
+         $('#log_pwd').focus();
+         return
+      }
+      
+      $.ajax({
+         type:'post',
+         url:'../member/login.do',
+         data:{"id":id,"pwd":pwd},
+         success:function(result)
+         {
+            // NOID , NOPWD , OK
+            let res=result.trim();
+            if(res==='NOID')
+            {
+               alert("아이디가 존재하지 않습니다!!")
+               $('#log_id').val("");
+               $('#log_pwd').val("");
+               $('#log_id').focus()
+            }
+            else if(res==='NOPWD')
+            {
+               alert("비밀번호가 틀립니다!!")
+               $('#log_pwd').val("")
+               $('#log_pwd').focus()
+            }
+            else
+            {
+               location.href="../main/main.do";
+            }
+         }
+      })
+      
+   })
+   // 로그아웃 버튼 
+   $('#logoutBtn').click(function(){
+      $.ajax({
+         type:'post',
+         url:'../member/logout.do',
+         success:function(result)
+         {
+            location.href="../main/main.do";
+         }
+      })
+   })
 })
 </script>
 </head>
@@ -87,7 +87,7 @@ $(function(){
      <!-- 로그인된 상태 -->
      <c:if test="${sessionScope.id!=null }">
       <ul class="inline">
-        <li>${sessionScope.id }(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인중입니다</li>
+        <li>${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인중입니다</li>
         <li><input type=button class="btn btn-lg btn-primary" value="로그아웃" id="logoutBtn"></li>
       </ul>
      </c:if>
@@ -100,17 +100,17 @@ $(function(){
       <li class="active"><a href="../main/main.do">Home</a></li>
       <li><a class="drop" href="#">회원</a>
         <c:if test="${sessionScope.id==null }"><%-- 로그인이 안된 상태 --%>
-	        <ul>
-	          <li><a href="../member/join.do">회원가입</a></li>
-	          <li><a href="pages/full-width.html">아이디찾기</a></li>
-	          <li><a href="pages/sidebar-left.html">비밀번호찾기</a></li>
-	        </ul>
+           <ul>
+             <li><a href="../member/join.do">회원가입</a></li>
+             <li><a href="../member/idfind.do">아이디찾기</a></li>
+             <li><a href="../member/pwdfind.do">비밀번호찾기</a></li>
+           </ul>
         </c:if>
         <c:if test="${sessionScope.id!=null }">
-	        <ul>
-	          <li><a href="pages/gallery.html">회원수정</a></li>
-	          <li><a href="pages/full-width.html">회원탈퇴</a></li>
-	        </ul>
+           <ul>
+             <li><a href="../member/join_update.do">회원수정</a></li>
+             <li><a href="../member/join_delete.do">회원탈퇴</a></li>
+           </ul>
         </c:if>
       </li>
       <li><a class="drop" href="#">맛집</a>
@@ -128,7 +128,7 @@ $(function(){
           <li><a href="../seoul/seoul_list.do?type=2">자연&관광</a></li>
           <li><a href="../seoul/seoul_list.do?type=3">쇼핑</a></li>
           <li><a href="../seoul/seoul_list.do?type=4">호텔</a></li>
-          <li><a href="../seoul/seoul_list.do?type=5">게스트하우스</a></li>
+          <li><a href="../seoul/seoul_weather.do">오늘의 날씨</a></li>
          <c:if test="${sessionScope.id!=null }">
           <li><a href="pages/sidebar-left.html">여행코스</a></li>
          </c:if>
@@ -176,8 +176,5 @@ $(function(){
 </div>
 </body>
 </html>
-
-
-
 
 

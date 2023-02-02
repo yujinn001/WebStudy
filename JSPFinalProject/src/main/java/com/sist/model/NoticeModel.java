@@ -38,5 +38,16 @@ public class NoticeModel {
 		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
-	
+	@RequestMapping("notice/detail.do")
+	public String notice_detail(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no =request.getParameter("no");
+		NoticeDAO dao =new NoticeDAO();
+		NoticeVO vo = dao.noticeDetailData(Integer.parseInt(no));
+		vo.setPrefix(prefix[vo.getType()]);
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../notice/detail.jsp");
+		CommonsModel.footerData(request);
+		return "../main/main.jsp";
+	}
 }
