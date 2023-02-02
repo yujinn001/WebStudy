@@ -10,7 +10,13 @@
   $( function() {
     $( "#tabs" ).tabs();
     $('#telBtn').click(function(){
+       let name=$('#name').val();
        let tel=$('#tel').val();
+       if(name.trim()=="")
+       {
+          $('#name').focus();
+          return
+       }
        if(tel.trim()=="")
        {
           $('#tel').focus();
